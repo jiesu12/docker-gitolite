@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo 'start ENTRYPOINT'
+
 set -- /usr/sbin/sshd -D
 
 # unlike most of the google search results, keys are supposed to be under this folder
@@ -9,7 +11,7 @@ for algorithm in rsa dsa ecdsa ed25519
 do
   keyfile=/etc/ssh/keys/ssh_host_${algorithm}_key
   [ -f $keyfile ] || ssh-keygen -q -N '' -f $keyfile -t $algorithm
-  grep -q "HostKey $keyfile" /etc/ssh/keys/sshd_config || echo "HostKey $keyfile" >> /etc/ssh/sshd_config
+  grep -q "HostKey $keyfile" /etc/ssh/sshd_config || echo "HostKey $keyfile" >> /etc/ssh/sshd_config
 done
 chmod -R go-r /etc/ssh/keys
 # Disable unwanted authentications
@@ -23,5 +25,7 @@ su - git -c "gitolite setup -pk \"/tmp/gitolite-admin/keydir/jie.pub\""
 
 # sshd won't start without this
 mkdir -p /var/run/sshd
+
+echo 'end ENTRYPOINT'
 
 exec "$@"
