@@ -1,11 +1,11 @@
-Not being used. Failed to build. The error message:
+## Build and Start
 ```
-git clone ssh://git@server01:2222/repos/docker/docker_gitolite.git
-cd docker_gitolite
-sudo docker build -t gitolite .
+docker build -t jsu/gitolite .
+docker run -d -p 2222:22 --name gitolite jsu/gitolite
+```
 
-...
-git describe failed; cannot deduce version number
-FATAL: errors found before logging could be setup
-FATAL: die	open VERSION.7 failed: Permission denied<<newline>>
+## Test clone
+```
+git clone ssh://git@localhost:2222/testing.git
+git clone ssh://git@localhost:2222/gitolite-admin.git
 ```
