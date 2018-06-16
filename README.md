@@ -1,7 +1,7 @@
 ## Build and Start
 ```
 docker build -t jsu/gitolite .
-docker run -d -p 2222:22 --name gitolite jsu/gitolite
+docker run -d -p 2222:22 -v /home/jie/tmp/repos:/repos --name gitolite jsu/gitolite
 ```
 
 ## Test clone
