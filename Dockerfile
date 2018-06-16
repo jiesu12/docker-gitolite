@@ -26,6 +26,8 @@ RUN cp /home/git/.ssh/id_rsa.pub /tmp/git.pub
 RUN chmod go+r /tmp/git.pub
 RUN su - git -c "gitolite setup -pk \"/tmp/git.pub\""
 
+VOLUME /repos
+
 COPY start.sh /
 RUN chmod +x /start.sh
 ENTRYPOINT ["/start.sh"]
