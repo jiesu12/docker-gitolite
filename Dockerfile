@@ -1,4 +1,4 @@
-FROM ubuntu:18:04
+FROM ubuntu:18.04
 
 RUN apt-get update \
 && echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
