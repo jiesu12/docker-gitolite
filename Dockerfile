@@ -1,4 +1,4 @@
-FROM armhf/alpine:3.5
+FROM resin/armhf-alpine:3.5
 
 RUN apk update \
 && apk add gitolite openssh
