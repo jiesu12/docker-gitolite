@@ -14,6 +14,11 @@ RUN sed -i s/#PubkeyAuthentication.*/PubkeyAuthentication\ yes/ /etc/ssh/sshd_co
 # Without this will cause sshd error: User git not allowed because account is locked
 RUN passwd -u git
 
+# shadow would disallow `passwd -u git`, so install it after.
+# need shadow to update user git's gid and uid in start.sh
+RUN apk add shadow \
+&& rm -rf /var/cache/apk/*
+
 VOLUME /repos
 
 COPY start.sh /
