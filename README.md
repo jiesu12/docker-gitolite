@@ -1,7 +1,7 @@
 ## Start
 First time run this to setup the admin account:
 ```
-docker run -d -p 2222:22 -v /path/to/repos:/repos -e GIT_PUB_KEY="$(cat ~/.ssh/id_rsa.pub)" --name gitolite jiesu/gitolite
+docker run -d -p 2222:22 -v /path/to/repos:/repos -e UID=1000 -e GID=1000 -e GIT_PUB_KEY="$(cat ~/.ssh/id_rsa.pub)" --name gitolite jiesu/gitolite-arm
 ```
 After that, can run without GIT_PUB_KEY:
 ```
