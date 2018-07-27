@@ -1,0 +1,12 @@
+[user]
+      email = jiesu12@gmail.com
+          name = Jie Su
+[core]
+      editor = vim
+[push]
+      default = simple
+[diff]
+      tool = vimdiff
+[difftool]
+      prompt = false
+
