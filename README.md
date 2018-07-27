@@ -1,6 +1,6 @@
 ## Start
 ```
-docker run -d -p 2222:22 -v /path/to/repos:/repos -e UID=1000 -e GID=1000 -e GIT_PUB_KEY="$(cat ~/.ssh/id_rsa.pub)" --name gitolite jiesu/gitolite-arm
+docker run -d -p 2222:22 -v /path/to/repos:/repositories -e UID=1000 -e GID=1000 -e GIT_PUB_KEY="$(cat ~/.ssh/id_rsa.pub)" --name gitolite jiesu/gitolite-arm
 ```
 
 ## Test clone
